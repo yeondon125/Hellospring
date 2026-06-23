@@ -12,4 +12,9 @@ public class HelloController {
     public String hello(@RequestParam(defaultValue = "world") String name) {
         return "Hello, " + name + "!";
     }
+
+    @GetMapping("/hello-json")
+    public HelloResponse helloJson(@RequestParam(defaultValue = "world") String name) {
+        return new HelloResponse(name, "Hello, " + name + "!");
+    }
 }
