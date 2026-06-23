@@ -2,6 +2,8 @@ package com.example.hellospring;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,5 +24,10 @@ public class HelloController {
     @GetMapping("/members/{id}")
     public String getMember(@PathVariable Long id) {
         return "회원 ID : " + id;
+    }
+
+    @PostMapping("/members")
+    public String createMember(@RequestBody MemberRequest request) {
+        return request.getName() + "님이 등록되었습니다.";
     }
 }
